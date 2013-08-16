@@ -61,5 +61,8 @@ class BlueHornetAPI(object):
             method_calls.append(method_dict)
         return self.method_call(method_calls)
 
-
-
+    def send_transaction(self, email, **kwargs):
+        method_call = self.get_method_dict('transactional.sendTransaction',
+                                           email=email,
+                                           **kwargs)
+        return self.method_call([method_call])
